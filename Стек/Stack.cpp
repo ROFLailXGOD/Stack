@@ -84,7 +84,7 @@ void Stack::find(int item)
 	}
 }
 
-void Stack::amount()
+int Stack::amount()
 {
 	SNode *ptr = top;
 	int count = 0;
@@ -94,6 +94,7 @@ void Stack::amount()
 		ptr = ptr->next;
 	}
 	std::cout << "Amount of items in stack: " << count << "\n";
+	return count;
 }
 
 Stack* Stack::sort()

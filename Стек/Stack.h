@@ -17,7 +17,7 @@ public:
 	void push(int);// Добавление элемента
 	void pop(); // Удаление
 	void find(int); // Поиск
-	void amount(); // Количество
+	int amount(); // Количество
 	Stack* sort(); // Сортировка
 	void print(); // Печать
 };
