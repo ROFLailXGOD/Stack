@@ -82,7 +82,6 @@ void Stack::find(int item)
 	{
 		std::cout << "Item " << item << " isn't found" << "\n";
 	}
-//	return key;
 }
 
 void Stack::amount()
@@ -97,7 +96,7 @@ void Stack::amount()
 	std::cout << "Amount of items in stack: " << count << "\n";
 }
 
-void Stack::sort()
+Stack* Stack::sort()
 {
 	Stack tmp;
 	Stack *res = new Stack();
@@ -145,18 +144,24 @@ void Stack::sort()
 			bPtr = tmp.top;
 		}
 	}
-//	top = res->top;
-//	return *res;
+	return res;
 }
 
 void Stack::print()
 {
 	SNode *ptr = top;
 	std::cout << "Stack: ";
-	while (ptr != NULL)
+	if (!ptr)
 	{
-		std::cout << ptr->item << " ";
-		ptr = ptr->next;
+		std::cout << "empty";
+	}
+	else
+	{
+		while (ptr != NULL)
+		{
+			std::cout << ptr->item << " ";
+			ptr = ptr->next;
+		}
 	}
 	std::cout << "\n";
 }

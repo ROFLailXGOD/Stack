@@ -1,7 +1,4 @@
 ﻿  Stack.cpp
 c:\users\zabey\documents\visual studio 2015\projects\стек\стек\stack.cpp(7): warning C4553: '==': operator has no effect; did you intend '='?
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Main.cpp
   Стек.vcxproj -> C:\Users\Zabey\Documents\Visual Studio 2015\Projects\Стек\Debug\Стек.exe
   Стек.vcxproj -> C:\Users\Zabey\Documents\Visual Studio 2015\Projects\Стек\Debug\Стек.pdb (Partial PDB)

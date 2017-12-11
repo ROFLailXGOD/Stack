@@ -18,6 +18,6 @@ public:
 	void pop(); // Удаление
 	void find(int); // Поиск
 	void amount(); // Количество
-	void sort(); // Сортировка
+	Stack* sort(); // Сортировка
 	void print(); // Печать
 };
