@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include "Node.h"
 #include <stdlib.h>
 #include <iostream>
 
@@ -15,16 +16,16 @@ Stack::Stack(const Stack& prevStack)
 	}
 	else
 	{
-		top = new SNode;
-		top->item = prevStack.top->item;
+		top = new SNode();
+		top->PutItem(prevStack.top->GetItem());
 		SNode *newPtr = top;
-		for (SNode *prevPtr = prevStack.top->next; prevPtr != NULL; prevPtr = prevPtr->next)
+		for (SNode *prevPtr = prevStack.top->GetNext(); prevPtr != NULL; prevPtr = prevPtr->GetNext())
 		{
-			newPtr->next = new SNode;
-			newPtr = newPtr->next;
-			newPtr->item = prevPtr->item;
+			newPtr->PutNext(new SNode);
+			newPtr = newPtr->GetNext();
+			newPtr->PutItem(prevPtr->GetItem());
 		}
-		newPtr->next = NULL;
+		newPtr->PutNext(NULL);
 	}
 }
 
@@ -45,8 +46,8 @@ void Stack::push(int newitem)
 	}
 	else
 	{
-		NewStack->item = newitem;
-		NewStack->next = top;
+		NewStack->PutItem(newitem);
+		NewStack->PutNext(top);
 		top = NewStack;
 	}
 }
@@ -60,8 +61,8 @@ void Stack::pop()
 	else
 	{
 		SNode *tmp = top;
-		top = top->next;
-		tmp->next = NULL;
+		top = top->GetNext();
+		tmp->PutNext(NULL);
 		delete tmp;
 	}
 }
@@ -71,12 +72,12 @@ void Stack::find(int item)
 	SNode *key = top;
 	while (key)
 	{
-		if (key->item == item)
+		if (key->GetItem() == item)
 		{
 			std::cout << "Item " << item << " is found" << "\n";
 			break;
 		}
-		key = key->next;
+		key = key->GetNext();
 	}
 	if (key == NULL)
 	{
@@ -91,7 +92,7 @@ int Stack::amount()
 	while (ptr)
 	{
 		++count;
-		ptr = ptr->next;
+		ptr = ptr->GetNext();
 	}
 	std::cout << "Amount of items in stack: " << count << "\n";
 	return count;
@@ -109,8 +110,8 @@ Stack* Stack::sort()
 		if (top != NULL)
 		{
 			aPtr = top;
-			max = aPtr->item;
-			tmp.push(aPtr->item);
+			max = aPtr->GetItem();
+			tmp.push(aPtr->GetItem());
 			pop();
 			aPtr = top;
 		}
@@ -120,11 +121,11 @@ Stack* Stack::sort()
 		}
 		while (aPtr != NULL)
 		{
-			if (aPtr->item > max)
+			if (aPtr->GetItem() > max)
 			{
-				max = aPtr->item;
+				max = aPtr->GetItem();
 			}
-			tmp.push(aPtr->item);
+			tmp.push(aPtr->GetItem());
 			pop();
 			aPtr = top;
 		}
@@ -133,13 +134,13 @@ Stack* Stack::sort()
 
 		while (bPtr != NULL)
 		{
-			if (bPtr->item == max)
+			if (bPtr->GetItem() == max)
 			{
-				res->push(bPtr->item);
+				res->push(bPtr->GetItem());
 			}
 			else
 			{
-				push(bPtr->item);
+				push(bPtr->GetItem());
 			}
 			tmp.pop();
 			bPtr = tmp.top;
@@ -160,8 +161,8 @@ void Stack::print()
 	{
 		while (ptr != NULL)
 		{
-			std::cout << ptr->item << " ";
-			ptr = ptr->next;
+			std::cout << ptr->GetItem() << " ";
+			ptr = ptr->GetNext();
 		}
 	}
 	std::cout << "\n";

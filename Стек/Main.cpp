@@ -17,6 +17,7 @@ int main()
 	a->amount();
 	a->find(7);
 	a->find(5);
+/*	a->pop();
 	a->pop();
 	a->pop();
 	a->pop();
@@ -27,8 +28,7 @@ int main()
 	a->pop();
 	a->pop();
 	a->pop();
-	a->pop();
-	a->pop();
+	a->pop(); */
 	a->amount(); 
 	a->print();
 	a = a->sort();

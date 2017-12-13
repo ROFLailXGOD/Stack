@@ -1,12 +1,8 @@
 #pragma once
+#include "Node.h"
 class Stack
 {
 private:
-	struct SNode
-	{
-		int item; //Меняем тип хранящегося объекта, если нужно
-		SNode *next;
-	};
 	SNode *top; // Указатель на верхний элемент
 
 public:
