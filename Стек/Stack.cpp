@@ -21,7 +21,7 @@ Stack::Stack(const Stack& prevStack)
 		SNode *newPtr = top;
 		for (SNode *prevPtr = prevStack.top->GetNext(); prevPtr != NULL; prevPtr = prevPtr->GetNext())
 		{
-			newPtr->PutNext(new SNode);
+			newPtr->PutNext(new SNode());
 			newPtr = newPtr->GetNext();
 			newPtr->PutItem(prevPtr->GetItem());
 		}
