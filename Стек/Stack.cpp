@@ -5,7 +5,7 @@
 
 Stack::Stack()
 {
-	top == NULL;
+	top = NULL;
 }
 
 Stack::Stack(const Stack& prevStack)
